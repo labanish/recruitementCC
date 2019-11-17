@@ -25,7 +25,7 @@ module.exports = {
       jobType: { required: true, type: 'string' },
       jobLoc : { required: true, type: 'string' }
     },
-    supportedActions: []
+    supportedActions: ['jobAvailablelist', 'NotAvailable']
   }),
   invoke: (conversation, done) => {
     
@@ -52,17 +52,19 @@ console.log(jobType+ " "+jobLocUpper);
         lst += res1.items[i].vacancyid +": "+res1.items[i].title;
        
       }
- //console.log(lst);
+ console.log(lst);
 
     conversation.variable("jobTypes", lst);
-    conversation.transition();
+    conversation.transition("jobAvailablelist");
+    conversation.keepTurn(true);
     done();
     }
     else
     {
       console.log("No items on the selected category");
       conversation.reply("Unfortunately we do not have any vacancies related to " +jobType.toLowerCase() + " in "+jobLoc);
-      conversation.transition();
+      conversation.transition("NotAvailable");
+      conversation.keepTurn(true);
       done();
     }
   }
