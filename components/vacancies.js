@@ -4,10 +4,12 @@ var request = require('request');
 
 //function to determine jobs in a given category and country
 
+//https://ttnxbbij6mcspvf-smatcloudsatp.adb.uk-london-1.oraclecloudapps.com/ords/labanish/recruitment/vacancies/:jobType/:jobLocation
+
 function query(jobt,jobl, callback)
 
 {
-  request({ "uri": "https://nn3dsuzdmbbb7ms-standardatp.adb.uk-london-1.oraclecloudapps.com/ords/labanish/recruitement/vacancies/"+jobt+"/"+jobl,
+  request({ "uri": "https://ttnxbbij6mcspvf-smatcloudsatp.adb.uk-london-1.oraclecloudapps.com/ords/labanish/recruitment/vacancies/"+jobt+"/"+jobl,
       "method": "GET"
     }, function (err, res1, body) {
         body = JSON.parse(body);

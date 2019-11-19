@@ -1,6 +1,6 @@
 {
   "name": "my-custom-component",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Oracle Bots Custom Component Package",
   "main": "main.js",
   "scripts": {
